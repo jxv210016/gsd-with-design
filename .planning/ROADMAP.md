@@ -16,9 +16,14 @@ Plans:
 - User validation step before finalizing DESIGN.md
 
 ## Phase 2: Design Agent Prompts
-**Goal:** Create all four design agent prompt files following GSD's `<role>/<context>/<output>` conventions.
+**Goal:** Create all four design agent prompt files following GSD's `<purpose>/<context>/<rules>/<output_format>` conventions.
 **Dependencies:** Phase 1 (DESIGN.md schema must exist for agents to consume)
 **Delivers:** R2.1, R2.2, R2.3, R2.4, R2.5
+**Plans:** 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Stack-conventions agent (Rosetta Stone) and UI design agent (8pt grid, 60-30-10, typography, states)
+- [ ] 02-02-PLAN.md — UX design agent (Hick's Law, honest design, Peak-end) and motion design agent (purposeful animation, reduced-motion first)
 
 - Write `workflows/design/stack-conventions.md` — adaptive stack discovery agent (init-once lifecycle)
 - Write `workflows/design/ui-design.md` — 8pt grid, 60-30-10 color, typography, component states
