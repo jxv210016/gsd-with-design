@@ -4,7 +4,7 @@
 Phase 1: Design Thinking Foundation
 
 ## Progress
-- Phase 1: not started
+- Phase 1: plan 1/1 complete
 - Phase 2: not started
 - Phase 3: not started
 - Phase 4: not started
@@ -12,7 +12,12 @@ Phase 1: Design Thinking Foundation
 - Phase 6: not started
 - Phase 7: not started
 
+## Last Session
+- **Stopped at:** Completed 01-01-PLAN.md
+- **Timestamp:** 2026-03-05T16:13:05Z
+
 ## Decisions
+- Command placed in .claude/commands/gsd/ (not commands/gsd/) for Claude Code project-level slash command discovery
 - Marker-based injection for upstream command patches
 - Conditional DESIGN.md loading (UI phases only, not blanket)
 - Inline synthesis over separate synthesizer agent

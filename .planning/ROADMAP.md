@@ -7,7 +7,7 @@
 **Plans:** 1 plan
 
 Plans:
-- [ ] 01-01-PLAN.md — Create design-thinking slash command with interview flow, DESIGN.md schema, skip support, and validation loop
+- [x] 01-01-PLAN.md — Create design-thinking slash command with interview flow, DESIGN.md schema, skip support, and validation loop
 
 - Define DESIGN.md schema (Problem Space, Emotional Core, Solution Space, Brand Identity) with `schema_version: 1`
 - Write `commands/gsd/design-thinking.md` — standalone design thinking command
