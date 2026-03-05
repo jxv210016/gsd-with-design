@@ -3,31 +3,31 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 04-01-PLAN.md
-last_updated: "2026-03-05T17:52:53.496Z"
+stopped_at: Completed 05-01-PLAN.md
+last_updated: "2026-03-05T18:07:30.883Z"
 progress:
   total_phases: 7
-  completed_phases: 4
-  total_plans: 8
-  completed_plans: 8
+  completed_phases: 5
+  total_plans: 9
+  completed_plans: 9
 ---
 
 # State — GSD with Design v1.0
 
 ## Current Phase
-Phase 4: GSD Workflow Integration — Plan 1/3 complete
+Phase 5: Auxiliary Commands Quick-Reference — Plan 1/1 complete
 
 ## Progress
 - Phase 1: plan 1/1 complete
 - Phase 2: plan 2/2 complete
 - Phase 3: plan 2/2 complete
 - Phase 4: plan 1/3 complete
-- Phase 5: not started
+- Phase 5: plan 1/1 complete
 - Phase 6: not started
 - Phase 7: not started
 
 ## Last Session
-- **Stopped at:** Completed 04-01-PLAN.md
+- **Stopped at:** Completed 05-01-PLAN.md
 - **Timestamp:** 2026-03-05T17:47:02Z
 
 ## Decisions
@@ -55,6 +55,8 @@ Phase 4: GSD Workflow Integration — Plan 1/3 complete
 - [Phase 04]: Forked workflow and command shim from global GSD into project repo for installer overlay
 - [Phase 04]: GSD-DESIGN-START/END markers for workflow injection consistency
 - [Phase 04]: Three-gate design thinking entry: auto mode skip, DESIGN.md exists skip, user opt-in
+- [Phase 05]: Read-only commands with allowed-tools: [Read] only for reference-only purpose
+- [Phase 05]: Generic CSS custom property fallbacks when STACK.md missing
 
 ## Blockers
 (none)
