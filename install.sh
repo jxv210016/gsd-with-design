@@ -262,7 +262,7 @@ for _fc_file in $PATCHED_CMDS; do
   _fc_src="$SCRIPT_DIR/.claude/commands/gsd/$_fc_file"
   _fc_dst="$INSTALL_DIR/commands/gsd/$_fc_file"
   if [ -f "$_fc_src" ]; then
-    sed "s|@/Users/jayvanam/.claude/|@${INSTALL_DIR}/|g" "$_fc_src" > "$_fc_dst"
+    sed "s|@~/.claude/|@${INSTALL_DIR}/|g" "$_fc_src" > "$_fc_dst"
     INSTALLED_COUNT=$((INSTALLED_COUNT + 1))
     printf "  [patched]  commands/gsd/%s\n" "$_fc_file"
   else
@@ -290,7 +290,7 @@ for _fc_file in $PATCHED_WORKFLOWS; do
   _fc_src="$SCRIPT_DIR/workflows/$_fc_file"
   _fc_dst="$INSTALL_DIR/get-shit-done/workflows/$_fc_file"
   if [ -f "$_fc_src" ]; then
-    sed "s|@/Users/jayvanam/.claude/|@${INSTALL_DIR}/|g" "$_fc_src" > "$_fc_dst"
+    sed "s|@~/.claude/|@${INSTALL_DIR}/|g" "$_fc_src" > "$_fc_dst"
     INSTALLED_COUNT=$((INSTALLED_COUNT + 1))
     printf "  [patched]  get-shit-done/workflows/%s\n" "$_fc_file"
   else

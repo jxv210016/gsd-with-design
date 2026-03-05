@@ -29,7 +29,7 @@ Additionally handles design-layer preservation:
 </objective>
 
 <execution_context>
-@/Users/jayvanam/.claude/get-shit-done/workflows/update.md
+@~/.claude/get-shit-done/workflows/update.md
 </execution_context>
 
 <process>
@@ -140,7 +140,7 @@ fi
 
 ## Phase 2: UPDATE (vanilla GSD)
 
-Now follow the standard update workflow from `@/Users/jayvanam/.claude/get-shit-done/workflows/update.md` end-to-end.
+Now follow the standard update workflow from `@~/.claude/get-shit-done/workflows/update.md` end-to-end.
 
 This includes:
 1. Installed version detection (local/global)

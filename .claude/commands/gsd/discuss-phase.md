@@ -29,8 +29,8 @@ Extract implementation decisions that downstream agents need — researcher and 
 </objective>
 
 <execution_context>
-@/Users/jayvanam/.claude/get-shit-done/workflows/discuss-phase.md
-@/Users/jayvanam/.claude/get-shit-done/templates/context.md
+@~/.claude/get-shit-done/workflows/discuss-phase.md
+@~/.claude/get-shit-done/templates/context.md
 <!-- GSD-DESIGN-START -->
 @workflows/design/ui-detection.md
 @workflows/design/orchestrate-design.md

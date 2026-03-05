@@ -194,7 +194,7 @@ if (Test-Path $DesignVersionPath) {
 # The patched command shims contain hardcoded developer paths that must be
 # replaced with the installing user's actual install directory path.
 # GSD @ references use forward slashes even on Windows.
-$DevPath = "@/Users/jayvanam/.claude/"
+$DevPath = "@~/.claude/"
 $InstallDirForward = $InstallDir -replace '\\', '/'
 $UserPath = "@$InstallDirForward/"
 
