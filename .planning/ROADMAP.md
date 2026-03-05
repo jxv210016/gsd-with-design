@@ -35,6 +35,11 @@ Plans:
 **Goal:** Wire design agents into GSD's discuss-phase with auto-detection and parallel spawning.
 **Dependencies:** Phase 2 (agents must exist), Phase 1 (DESIGN.md must exist)
 **Delivers:** R3.1, R3.2, R3.3, R3.4, R3.5, R3.6, R3.7
+**Plans:** 2 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — UI detection workflow with keyword categories, negative suppression, manual override markers, and conditional DESIGN.md gate
+- [ ] 03-02-PLAN.md — Design agent orchestration with stack gate, parallel spawning, synthesis into {phase}-UI.md, and graceful degradation
 
 - UI auto-detection logic: 2+ keyword threshold across 6 categories + negative keyword suppression
 - Manual override markers (`<!-- ui-phase -->`, `<!-- no-ui -->`)
