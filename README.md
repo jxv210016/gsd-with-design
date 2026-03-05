@@ -18,7 +18,7 @@ graph LR
 ## Quick Start
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/{owner}/{repo}/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/jxv210016/gsd-with-design/main/install.sh | sh
 ```
 
 The installer verifies GSD is installed, copies design files, and patches commands. [View install.sh source](install.sh).
@@ -142,7 +142,7 @@ When you run `/gsd:update`, the patched update command backs up all design-layer
 ### macOS / Linux
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/{owner}/{repo}/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/jxv210016/gsd-with-design/main/install.sh | sh
 ```
 
 The installer is POSIX sh compatible (works with macOS's bash 3.2). It detects your GSD installation location, checks for existing design files, and offers to back up customizations before overwriting.
