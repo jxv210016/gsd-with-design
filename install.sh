@@ -7,6 +7,7 @@ set -eu
 
 DESIGN_VERSION="1.0.0"
 SCHEMA_VERSION=1
+REPO_URL="https://github.com/jxv210016/gsd-with-design"
 
 ##############################################################################
 # Banner
@@ -36,23 +37,45 @@ compute_checksum() {
 
 ##############################################################################
 # Source directory detection
+# If run from repo root, use local files. Otherwise download from GitHub.
 ##############################################################################
 
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+CLEANUP_TMPDIR=""
 
-if [ ! -f "$SCRIPT_DIR/.claude/commands/gsd/design-thinking.md" ]; then
-  printf "ERROR: Cannot find design source files.\n" >&2
-  printf "Run this script from the gsd-with-design repository root.\n" >&2
-  exit 1
+cleanup() {
+  if [ -n "$CLEANUP_TMPDIR" ] && [ -d "$CLEANUP_TMPDIR" ]; then
+    rm -rf "$CLEANUP_TMPDIR"
+  fi
+}
+trap cleanup EXIT
+
+if [ -f "./.claude/commands/gsd/design-thinking.md" ] && [ -f "./workflows/design/ui-design.md" ]; then
+  SCRIPT_DIR="$(pwd)"
+  printf "Source: %s (local)\n" "$SCRIPT_DIR"
+else
+  printf "Downloading from %s...\n" "$REPO_URL"
+  CLEANUP_TMPDIR="$(mktemp -d)"
+  TARBALL_URL="${REPO_URL}/archive/refs/heads/main.tar.gz"
+
+  if command -v curl >/dev/null 2>&1; then
+    curl -fsSL "$TARBALL_URL" | tar xz -C "$CLEANUP_TMPDIR"
+  elif command -v wget >/dev/null 2>&1; then
+    wget -qO- "$TARBALL_URL" | tar xz -C "$CLEANUP_TMPDIR"
+  else
+    printf "ERROR: Need curl or wget to download files.\n" >&2
+    exit 1
+  fi
+
+  # tar extracts to a directory named {repo}-{branch}
+  SCRIPT_DIR="$CLEANUP_TMPDIR/gsd-with-design-main"
+
+  if [ ! -f "$SCRIPT_DIR/.claude/commands/gsd/design-thinking.md" ]; then
+    printf "ERROR: Download succeeded but expected files not found.\n" >&2
+    exit 1
+  fi
+
+  printf "Source: downloaded from GitHub\n"
 fi
-
-if [ ! -f "$SCRIPT_DIR/workflows/design/ui-design.md" ]; then
-  printf "ERROR: Cannot find design workflow files.\n" >&2
-  printf "Run this script from the gsd-with-design repository root.\n" >&2
-  exit 1
-fi
-
-printf "Source: %s\n" "$SCRIPT_DIR"
 
 ##############################################################################
 # GSD installation detection (R6.5)
