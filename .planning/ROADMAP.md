@@ -81,7 +81,7 @@ Plans:
 **Goal:** Ensure the fork survives GSD updates and can be installed cross-platform.
 **Dependencies:** Phase 4 (must know which files to preserve)
 **Delivers:** R6.1, R6.2, R6.3, R6.4, R6.5, R6.6
-**Plans:** 1/3 plans executed
+**Plans:** 2/3 plans executed
 
 Plans:
 - [ ] 06-01-PLAN.md — design-version.json schema and patched update.md with design-layer backup/restore
