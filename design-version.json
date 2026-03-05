@@ -1,0 +1,24 @@
+{
+  "version": "1.0.0",
+  "schema_version": 1,
+  "installed_at": "",
+  "gsd_base_version": "",
+  "files": {
+    "commands/gsd/design-thinking.md": "",
+    "commands/gsd/design-ui.md": "",
+    "commands/gsd/design-stack.md": "",
+    "commands/gsd/new-project.md": "",
+    "commands/gsd/discuss-phase.md": "",
+    "commands/gsd/plan-phase.md": "",
+    "commands/gsd/update.md": "",
+    "get-shit-done/workflows/design/motion-design.md": "",
+    "get-shit-done/workflows/design/orchestrate-design.md": "",
+    "get-shit-done/workflows/design/stack-conventions.md": "",
+    "get-shit-done/workflows/design/ui-design.md": "",
+    "get-shit-done/workflows/design/ui-detection.md": "",
+    "get-shit-done/workflows/design/ux-design.md": "",
+    "get-shit-done/workflows/new-project.md": "",
+    "get-shit-done/workflows/discuss-phase.md": "",
+    "get-shit-done/workflows/plan-phase.md": ""
+  }
+}
