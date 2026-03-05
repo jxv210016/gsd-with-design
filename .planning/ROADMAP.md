@@ -69,6 +69,10 @@ Plans:
 **Goal:** Add convenience commands for design reference during implementation.
 **Dependencies:** Phase 1 (DESIGN.md schema), Phase 2 (agent content to reference)
 **Delivers:** R5.1, R5.2
+**Plans:** 1 plan
+
+Plans:
+- [ ] 05-01-PLAN.md — Create design-ui and design-stack read-only quick-reference commands
 
 - Write `commands/gsd/design-ui.md` — outputs UI/UX/motion craft standards (read-only)
 - Write `commands/gsd/design-stack.md` — outputs stack + git conventions (read-only)
