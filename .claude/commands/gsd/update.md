@@ -303,6 +303,29 @@ echo ""
 echo "Design layer preserved through GSD update."
 ```
 
+### Step 3.7: Display completion
+
+Display the following completion banner:
+
+---
+
+## UPDATE COMPLETE
+
+GSD updated successfully. Design layer preserved through update (all 16 design files restored).
+
+**Important:** Restart your Claude Code session to pick up the new version.
+
+---
+
+## Next Up
+
+- `/gsd:progress` -- see where you left off
+- `/gsd:discuss-phase N` -- continue with next phase
+
+<sub>`/clear` first -- fresh context window (required after update)</sub>
+
+---
+
 </process>
 
 <!-- GSD-DESIGN-END -->
