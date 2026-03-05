@@ -19,7 +19,7 @@ Plans:
 **Goal:** Create all four design agent prompt files following GSD's `<purpose>/<context>/<rules>/<output_format>` conventions.
 **Dependencies:** Phase 1 (DESIGN.md schema must exist for agents to consume)
 **Delivers:** R2.1, R2.2, R2.3, R2.4, R2.5
-**Plans:** 2 plans
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 02-01-PLAN.md — Stack-conventions agent (Rosetta Stone) and UI design agent (8pt grid, 60-30-10, typography, states)
