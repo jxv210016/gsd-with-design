@@ -1,0 +1,110 @@
+# Requirements -- GSD with Design v1.0
+
+**Coverage:** 32/32 satisfied
+**Source:** Requirement IDs extracted from ROADMAP.md "Delivers" fields and PLAN frontmatter. Descriptions derived from PLAN must_haves and VERIFICATION reports.
+
+## Traceability Table
+
+| ID | Description | Priority | Phase | Plan(s) | Status |
+|----|-------------|----------|-------|---------|--------|
+| R1.1 | Standalone `/gsd:design-thinking` slash command with conversational design interview | must | 01 | 01-01 | [x] Satisfied |
+| R1.2 | DESIGN.md schema with Problem Space, Emotional Core, Solution Space, Brand Identity and `schema_version: 1` | must | 01 | 01-01 | [x] Satisfied |
+| R1.3 | Design thinking integrated into `/gsd:new-project` workflow via marker injection | must | 04 | 04-01 | [x] Satisfied |
+| R1.4 | Skip support -- user can exit design thinking without producing DESIGN.md | must | 01 | 01-01 | [x] Satisfied |
+| R1.5 | User validation loop (Edit/Regenerate/Yes) before finalizing DESIGN.md | must | 01 | 01-01 | [x] Satisfied |
+| R2.1 | Stack-conventions agent (`stack-conventions.md`) -- adaptive stack discovery, init-once lifecycle, produces STACK.md | must | 02 | 02-01 | [x] Satisfied |
+| R2.2 | UI design agent (`ui-design.md`) -- 8pt grid, 60-30-10 color, ratio-based typography, component state completeness | must | 02 | 02-01 | [x] Satisfied |
+| R2.3 | UX design agent (`ux-design.md`) -- Hick's Law, Peak-end rule, honest design, cognitive load limits | must | 02 | 02-02 | [x] Satisfied |
+| R2.4 | Motion design agent (`motion-design.md`) -- purposeful animation, duration/easing defaults, reduced-motion first | must | 02 | 02-02 | [x] Satisfied |
+| R2.5 | All design agents are stack-agnostic -- reference DESIGN.md stack section, never hardcode framework names | must | 02 | 02-01, 02-02 | [x] Satisfied |
+| R3.1 | UI auto-detection via keyword scanning across 6 categories with 2+ category threshold | must | 03 | 03-01 | [x] Satisfied |
+| R3.2 | Negative keyword suppression for backend-dominant phases before positive detection | must | 03 | 03-01 | [x] Satisfied |
+| R3.3 | Manual override markers (`<!-- ui-phase -->`, `<!-- no-ui -->`) with absolute priority | must | 03 | 03-01 | [x] Satisfied |
+| R3.4 | Parallel agent spawning via Task() with `run_in_background=true` for 3 design agents | must | 03 | 03-02 | [x] Satisfied |
+| R3.5 | Synthesis of agent outputs into `{phase}-UI.md` with conflict resolution hierarchy | must | 03 | 03-02 | [x] Satisfied |
+| R3.6 | Graceful degradation -- partial results used if one agent fails; warning if all fail | must | 03 | 03-02 | [x] Satisfied |
+| R3.7 | Conditional DESIGN.md loading -- loaded only when UI detection returns true | must | 03 | 03-01 | [x] Satisfied |
+| R4.1 | `/gsd:new-project` patched with `GSD-DESIGN-START/END` markers for design thinking injection | must | 04 | 04-01 | [x] Satisfied |
+| R4.2 | `/gsd:discuss-phase` patched with UI detection gate, agent orchestration, and `{phase}-UI.md` commit | must | 04 | 04-02 | [x] Satisfied |
+| R4.3 | `/gsd:plan-phase` patched to load DESIGN.md and `{phase}-UI.md` as optional planner context | must | 04 | 04-03 | [x] Satisfied |
+| R4.4 | Guard clause pattern -- no DESIGN.md means vanilla GSD behavior on all patched paths | must | 04 | 04-02, 04-03 | [x] Satisfied |
+| R4.5 | Non-UI phases produce zero design artifacts and skip all design detection | must | 04 | 04-02 | [x] Satisfied |
+| R5.1 | `/gsd:design-ui` read-only command -- consolidated UI/UX/motion quick-reference card | must | 05 | 05-01 | [x] Satisfied |
+| R5.2 | `/gsd:design-stack` read-only command -- stack conventions with framework-specific recipes | must | 05 | 05-01 | [x] Satisfied |
+| R6.1 | Patched `/gsd:update` preserves all design-layer files through GSD wipe-and-replace cycle | must | 06 | 06-01 | [x] Satisfied |
+| R6.2 | `design-version.json` with fork version, install timestamp, GSD base version, and SHA-256 checksums | must | 06 | 06-01 | [x] Satisfied |
+| R6.3 | `install.sh` -- POSIX sh overlay installer for Mac/Linux | must | 06 | 06-02 | [x] Satisfied |
+| R6.4 | `install.ps1` -- PowerShell overlay installer for Windows with execution policy handling | must | 06 | 06-03 | [x] Satisfied |
+| R6.5 | Global vs local install detection with user prompt when both exist | must | 06 | 06-02, 06-03 | [x] Satisfied |
+| R6.6 | POSIX sh compliance -- no bashisms, shellcheck clean under `--shell=sh` | must | 06 | 06-02 | [x] Satisfied |
+| R7.1 | README.md documenting full integration: flow, agents, commands, install, update safety, uninstall | must | 07 | 07-01 | [x] Satisfied |
+| R7.2 | Documentation-only phase -- no code files modified, no new dependencies | must | 07 | 07-01 | [x] Satisfied |
+
+## Requirement Groups
+
+### 1. Design Thinking (R1.x)
+
+Five requirements covering the design thinking interview and its DESIGN.md output schema.
+
+- **R1.1** -- Standalone `/gsd:design-thinking` slash command that runs a conversational design interview producing `.planning/DESIGN.md`. Delivered in Phase 01 (01-01-PLAN).
+- **R1.2** -- DESIGN.md schema with four sections (Problem Space, Emotional Core, Solution Space, Brand Identity) and `schema_version: 1`. All 11 sub-headings defined. Delivered in Phase 01 (01-01-PLAN).
+- **R1.3** -- Design thinking wired into the `/gsd:new-project` flow as Step 4.5, offered after PROJECT.md is written. Auto mode and existing DESIGN.md both skip gracefully. Delivered in Phase 04 (04-01-PLAN).
+- **R1.4** -- Skip support at the start of the interview. Selecting "Skip" exits cleanly without creating DESIGN.md. Delivered in Phase 01 (01-01-PLAN).
+- **R1.5** -- Unlimited validation loop after DESIGN.md generation. User can Edit, Regenerate, or approve with Yes. Loop continues until approval. Delivered in Phase 01 (01-01-PLAN).
+
+### 2. Design Agent Prompts (R2.x)
+
+Five requirements covering the four design agent prompt files and their stack-agnostic constraint.
+
+- **R2.1** -- Stack-conventions agent (`workflows/design/stack-conventions.md`). Reads DESIGN.md Tech Stack, produces STACK.md with framework translation recipes for spacing, color, typography, and motion. Init-once lifecycle. Delivered in Phase 02 (02-01-PLAN).
+- **R2.2** -- UI design agent (`workflows/design/ui-design.md`). Enforces 8pt grid spacing, 60-30-10 color rule, ratio-based typography scales, and all 8 component states (default, hover, focus, active, disabled, loading, error, empty). Under 1500 tokens. Delivered in Phase 02 (02-01-PLAN).
+- **R2.3** -- UX design agent (`workflows/design/ux-design.md`). Enforces Hick's Law, Peak-end rule, honest design (non-negotiable), cognitive load limits, Fitts's Law target sizing, and form best practices. Under 1500 tokens. Delivered in Phase 02 (02-02-PLAN).
+- **R2.4** -- Motion design agent (`workflows/design/motion-design.md`). Enforces purposeful animation with duration/easing defaults across 4 tiers, `prefers-reduced-motion` as non-negotiable, and restraint principle. Under 1500 tokens. Delivered in Phase 02 (02-02-PLAN).
+- **R2.5** -- All three design agents (ui, ux, motion) are fully stack-agnostic with zero hardcoded framework names. Only `stack-conventions.md` is framework-aware by design. Delivered in Phase 02 (02-01-PLAN, 02-02-PLAN).
+
+### 3. UI Detection & Orchestration (R3.x)
+
+Seven requirements covering UI phase detection and design agent orchestration.
+
+- **R3.1** -- UI auto-detection algorithm scanning phase text for keywords across 6 categories (Components, Layouts, Interactions, Visual, Navigation, States) with a 2+ matched category threshold. Delivered in Phase 03 (03-01-PLAN).
+- **R3.2** -- Negative keyword suppression. 25 backend-dominant terms tested before positive detection runs, preventing false positives on API/database/infrastructure phases. Delivered in Phase 03 (03-01-PLAN).
+- **R3.3** -- Manual override markers (`<!-- ui-phase -->` and `<!-- no-ui -->`) that always take absolute priority over the keyword detection algorithm. Delivered in Phase 03 (03-01-PLAN).
+- **R3.4** -- Parallel spawning of 3 design agents (ui-design, ux-design, motion-design) via `Task(run_in_background=true)`. Stack-conventions agent runs first as an init-once gate. Delivered in Phase 03 (03-02-PLAN).
+- **R3.5** -- Synthesis of agent outputs into `{phase}-UI.md` with section headers, conflict resolution hierarchy (UX > visual, a11y > motion, brand = tiebreaker), and a quick-reference summary. Delivered in Phase 03 (03-02-PLAN).
+- **R3.6** -- Graceful degradation. If 1-2 agents fail, retry once then synthesize from remaining agents with a note about missing guidance. If all 3 fail, retry all once then continue without `{phase}-UI.md` with a warning. Delivered in Phase 03 (03-02-PLAN).
+- **R3.7** -- Conditional DESIGN.md loading gate. DESIGN.md is loaded only when UI detection returns true. When false, all design artifacts are skipped. When missing, user is prompted. Delivered in Phase 03 (03-01-PLAN).
+
+### 4. Workflow Integration (R4.x)
+
+Five requirements covering marker-based injection into existing GSD workflows.
+
+- **R4.1** -- `/gsd:new-project` patched with `<!-- GSD-DESIGN-START -->` / `<!-- GSD-DESIGN-END -->` markers wrapping the design thinking injection at Step 4.5. Command shim updated with execution_context reference. Delivered in Phase 04 (04-01-PLAN).
+- **R4.2** -- `/gsd:discuss-phase` patched with 3 marker pairs: UI detection step (after CONTEXT.md write), confirm_creation mention, and git commit for `{phase}-UI.md`. Command shim references all 6 design workflow files. Delivered in Phase 04 (04-02-PLAN).
+- **R4.3** -- `/gsd:plan-phase` patched with 3 marker pairs: conditional design context loading in Step 7, `files_to_read` entries for DESIGN.md and `{phase}-UI.md` in Step 8, and design context note. Missing files gracefully omitted. Delivered in Phase 04 (04-03-PLAN).
+- **R4.4** -- Guard clause pattern on all patched paths. No DESIGN.md means vanilla GSD behavior -- zero design-related prompts, detection, or artifacts. Guards present in new-project, discuss-phase, and plan-phase. Delivered in Phase 04 (04-02-PLAN, 04-03-PLAN).
+- **R4.5** -- Non-UI phases skip design detection entirely and produce zero design artifacts. `IS_UI=false` path bypasses orchestration. Plan-phase omits empty design paths from planner prompt. Delivered in Phase 04 (04-02-PLAN).
+
+### 5. Auxiliary Commands (R5.x)
+
+Two requirements covering read-only quick-reference commands.
+
+- **R5.1** -- `/gsd:design-ui` slash command. Read-only quick-reference card consolidating UI spacing (8pt grid), color (60-30-10), typography scale, component states checklist, UX rules, motion defaults, and accessibility requirements. Shows generic defaults with a note to run `/gsd:design-thinking` when DESIGN.md is missing. Delivered in Phase 05 (05-01-PLAN).
+- **R5.2** -- `/gsd:design-stack` slash command. Read-only quick-reference card showing detected stack, and spacing/color/typography/motion recipes from STACK.md. Falls back to generic CSS custom property defaults when STACK.md is absent. Delivered in Phase 05 (05-01-PLAN).
+
+### 6. Update Safety & Installation (R6.x)
+
+Six requirements covering fork preservation through GSD updates and cross-platform installation.
+
+- **R6.1** -- Patched `/gsd:update` command with 3-phase backup/restore cycle. Backs up all 16 design-layer files to a temp directory before GSD's wipe-and-replace, restores them after, and self-restores the patched update.md itself. Delivered in Phase 06 (06-01-PLAN).
+- **R6.2** -- `design-version.json` schema with fork version (1.0.0), `schema_version: 1`, install timestamp, GSD base version, and SHA-256 checksums for all 16 design-layer files. Delivered in Phase 06 (06-01-PLAN).
+- **R6.3** -- `install.sh` POSIX sh overlay installer for Mac/Linux. 403 lines, copies all 16 design-layer files to the correct locations, applies path rewriting, and generates `design-version.json` with checksums. Delivered in Phase 06 (06-02-PLAN).
+- **R6.4** -- `install.ps1` PowerShell overlay installer for Windows. 410 lines, same 16-file copy logic with `Copy-Item` and `Set-Content` path rewriting, `Get-FileHash` SHA256 checksums, and execution policy bypass handling. Delivered in Phase 06 (06-03-PLAN).
+- **R6.5** -- Global vs local installation detection. Both installers search 4 runtime directories (local + global), list numbered options when multiple installations found, and prompt the user to choose with a default. Delivered in Phase 06 (06-02-PLAN, 06-03-PLAN).
+- **R6.6** -- POSIX sh compliance for `install.sh`. No bashisms (`local`, `[[ ]]`, arrays), uses unique variable prefixes instead. Passes `shellcheck --shell=sh` with 0 errors. `#!/bin/sh` shebang. Delivered in Phase 06 (06-02-PLAN).
+
+### 7. Documentation (R7.x)
+
+Two requirements covering project documentation.
+
+- **R7.1** -- README.md documenting the full integration: what it is, how it differs from vanilla GSD, one-liner install command, all 7 commands with descriptions, 4 Mermaid diagrams (design thinking pipeline, UI agent lifecycle, file architecture, update safety), 3 installation methods, uninstall instructions, and superset guarantee explanation. 188 lines. Delivered in Phase 07 (07-01-PLAN).
+- **R7.2** -- Documentation-only phase constraint. No code files modified, no new dependencies introduced. Only README.md and LICENSE created. Delivered in Phase 07 (07-01-PLAN).

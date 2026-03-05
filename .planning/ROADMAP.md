@@ -4,7 +4,7 @@
 **Goal:** Create the design-thinking command and DESIGN.md schema — the foundation everything else depends on.
 **Dependencies:** None
 **Delivers:** R1.1, R1.2, R1.4, R1.5
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 - [x] 01-01-PLAN.md — Create design-thinking slash command with interview flow, DESIGN.md schema, skip support, and validation loop
@@ -22,8 +22,8 @@ Plans:
 **Plans:** 2/2 plans complete
 
 Plans:
-- [ ] 02-01-PLAN.md — Stack-conventions agent (Rosetta Stone) and UI design agent (8pt grid, 60-30-10, typography, states)
-- [ ] 02-02-PLAN.md — UX design agent (Hick's Law, honest design, Peak-end) and motion design agent (purposeful animation, reduced-motion first)
+- [x] 02-01-PLAN.md — Stack-conventions agent (Rosetta Stone) and UI design agent (8pt grid, 60-30-10, typography, states)
+- [x] 02-02-PLAN.md — UX design agent (Hick's Law, honest design, Peak-end) and motion design agent (purposeful animation, reduced-motion first)
 
 - Write `workflows/design/stack-conventions.md` — adaptive stack discovery agent (init-once lifecycle)
 - Write `workflows/design/ui-design.md` — 8pt grid, 60-30-10 color, typography, component states
@@ -38,8 +38,8 @@ Plans:
 **Plans:** 2/2 plans complete
 
 Plans:
-- [ ] 03-01-PLAN.md — UI detection workflow with keyword categories, negative suppression, manual override markers, and conditional DESIGN.md gate
-- [ ] 03-02-PLAN.md — Design agent orchestration with stack gate, parallel spawning, synthesis into {phase}-UI.md, and graceful degradation
+- [x] 03-01-PLAN.md — UI detection workflow with keyword categories, negative suppression, manual override markers, and conditional DESIGN.md gate
+- [x] 03-02-PLAN.md — Design agent orchestration with stack gate, parallel spawning, synthesis into {phase}-UI.md, and graceful degradation
 
 - UI auto-detection logic: 2+ keyword threshold across 6 categories + negative keyword suppression
 - Manual override markers (`<!-- ui-phase -->`, `<!-- no-ui -->`)
@@ -52,12 +52,12 @@ Plans:
 **Goal:** Patch existing GSD commands with marker-based injection to wire in design thinking and design context.
 **Dependencies:** Phase 3 (orchestration must work), Phase 1 (design thinking command must exist)
 **Delivers:** R1.3, R4.1, R4.2, R4.3, R4.4, R4.5
-**Plans:** 3 plans
+**Plans:** 3/3 plans complete
 
 Plans:
-- [ ] 04-01-PLAN.md — Patch new-project workflow with design thinking injection (Step 4.5) and update command shim
-- [ ] 04-02-PLAN.md — Patch discuss-phase workflow with UI detection gate, agent orchestration, and UI.md commit
-- [ ] 04-03-PLAN.md — Patch plan-phase workflow with design context loading and cross-file guard clause verification
+- [x] 04-01-PLAN.md — Patch new-project workflow with design thinking injection (Step 4.5) and update command shim
+- [x] 04-02-PLAN.md — Patch discuss-phase workflow with UI detection gate, agent orchestration, and UI.md commit
+- [x] 04-03-PLAN.md — Patch plan-phase workflow with design context loading and cross-file guard clause verification
 
 - Patch `new-project.md` — inject design thinking phase after questioning, before research
 - Patch `discuss-phase.md` — inject UI detection gate and design agent spawning
@@ -69,10 +69,10 @@ Plans:
 **Goal:** Add convenience commands for design reference during implementation.
 **Dependencies:** Phase 1 (DESIGN.md schema), Phase 2 (agent content to reference)
 **Delivers:** R5.1, R5.2
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
-- [ ] 05-01-PLAN.md — Create design-ui and design-stack read-only quick-reference commands
+- [x] 05-01-PLAN.md — Create design-ui and design-stack read-only quick-reference commands
 
 - Write `commands/gsd/design-ui.md` — outputs UI/UX/motion craft standards (read-only)
 - Write `commands/gsd/design-stack.md` — outputs stack + git conventions (read-only)
@@ -81,12 +81,12 @@ Plans:
 **Goal:** Ensure the fork survives GSD updates and can be installed cross-platform.
 **Dependencies:** Phase 4 (must know which files to preserve)
 **Delivers:** R6.1, R6.2, R6.3, R6.4, R6.5, R6.6
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans complete
 
 Plans:
-- [ ] 06-01-PLAN.md — design-version.json schema and patched update.md with design-layer backup/restore
-- [ ] 06-02-PLAN.md — install.sh POSIX sh overlay installer with shellcheck compliance
-- [ ] 06-03-PLAN.md — install.ps1 PowerShell overlay installer with execution policy handling
+- [x] 06-01-PLAN.md — design-version.json schema and patched update.md with design-layer backup/restore
+- [x] 06-02-PLAN.md — install.sh POSIX sh overlay installer with shellcheck compliance
+- [x] 06-03-PLAN.md — install.ps1 PowerShell overlay installer with execution policy handling
 
 - Patch `update.md` to preserve `commands/gsd/design-*` and `workflows/design/`
 - Create `design-version.json` with version + file checksums
@@ -101,7 +101,7 @@ Plans:
 **Plans:** 1/1 plans complete
 
 Plans:
-- [ ] 07-01-PLAN.md — Write README.md with Mermaid diagrams, commands reference, install instructions, and MIT LICENSE
+- [x] 07-01-PLAN.md — Write README.md with Mermaid diagrams, commands reference, install instructions, and MIT LICENSE
 
 - README: what it is, how it works, install, commands, agent lifecycles, {phase}-UI.md flow
 - Update behavior documentation
