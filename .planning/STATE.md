@@ -38,6 +38,6 @@ Full decision log in PROJECT.md Key Decisions table.
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 1 | Add next-step routing to design-layer commands after completion | 2026-03-05 | 6efbc81 | [1-add-next-step-routing-to-design-layer-co](./quick/1-add-next-step-routing-to-design-layer-co/) |
-| 2 | Add DESIGN.md awareness to the quick workflow | 2026-03-05 | f2da601 | [2-add-design-md-awareness-to-the-quick-wor](./quick/2-add-design-md-awareness-to-the-quick-wor/) |
+| 2 | Add DESIGN.md awareness to the quick workflow | 2026-03-05 | cb990d2 | [2-add-design-md-awareness-to-the-quick-wor](./quick/2-add-design-md-awareness-to-the-quick-wor/) |
 
 Last activity: 2026-03-05 - Completed quick task 2: Add DESIGN.md awareness to the quick workflow
