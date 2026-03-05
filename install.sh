@@ -307,6 +307,20 @@ for _fc_file in $DESIGN_WORKFLOWS; do
   fi
 done
 
+# Copied workflow files (no path rewriting needed)
+COPIED_WORKFLOWS="quick.md"
+for _fc_file in $COPIED_WORKFLOWS; do
+  _fc_src="$SCRIPT_DIR/workflows/$_fc_file"
+  _fc_dst="$INSTALL_DIR/get-shit-done/workflows/$_fc_file"
+  if [ -f "$_fc_src" ]; then
+    cp -p "$_fc_src" "$_fc_dst"
+    INSTALLED_COUNT=$((INSTALLED_COUNT + 1))
+    printf "  [copied]   get-shit-done/workflows/%s\n" "$_fc_file"
+  else
+    printf "  [skipped]  get-shit-done/workflows/%s (not found in source)\n" "$_fc_file"
+  fi
+done
+
 # Patched workflow files (need path rewriting)
 PATCHED_WORKFLOWS="new-project.md discuss-phase.md plan-phase.md"
 for _fc_file in $PATCHED_WORKFLOWS; do
@@ -346,6 +360,7 @@ get-shit-done/workflows/design/stack-conventions.md
 get-shit-done/workflows/design/ui-design.md
 get-shit-done/workflows/design/ui-detection.md
 get-shit-done/workflows/design/ux-design.md
+get-shit-done/workflows/quick.md
 get-shit-done/workflows/new-project.md
 get-shit-done/workflows/discuss-phase.md
 get-shit-done/workflows/plan-phase.md"
@@ -411,7 +426,7 @@ printf "============================================\n"
 printf "  Installation Summary\n"
 printf "============================================\n"
 printf "  Files installed:    %d\n" "$INSTALLED_COUNT"
-printf "  Files verified:     %d / 16\n" "$VERIFIED_COUNT"
+printf "  Files verified:     %d / 17\n" "$VERIFIED_COUNT"
 printf "  Install location:   %s\n" "$INSTALL_DIR"
 printf "  GSD base version:   %s\n" "$GSD_BASE_VERSION"
 printf "  Design version:     %s\n" "$DESIGN_VERSION"
