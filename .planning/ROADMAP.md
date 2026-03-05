@@ -98,6 +98,10 @@ Plans:
 **Goal:** Document the full integration for users.
 **Dependencies:** All prior phases (document what was built)
 **Delivers:** R7.1, R7.2
+**Plans:** 1 plan
+
+Plans:
+- [ ] 07-01-PLAN.md — Write README.md with Mermaid diagrams, commands reference, install instructions, and MIT LICENSE
 
 - README: what it is, how it works, install, commands, agent lifecycles, {phase}-UI.md flow
 - Update behavior documentation
