@@ -3,19 +3,19 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: unknown
-stopped_at: Completed 05-01-PLAN.md
-last_updated: "2026-03-05T18:10:15.418Z"
+stopped_at: Completed 06-01-PLAN.md
+last_updated: "2026-03-05T18:29:16.666Z"
 progress:
   total_phases: 7
   completed_phases: 5
-  total_plans: 9
-  completed_plans: 9
+  total_plans: 12
+  completed_plans: 10
 ---
 
 # State — GSD with Design v1.0
 
 ## Current Phase
-Phase 5: Auxiliary Commands Quick-Reference — Plan 1/1 complete
+Phase 6: Update Safety and Installation — Plan 1/1 complete
 
 ## Progress
 - Phase 1: plan 1/1 complete
@@ -23,12 +23,12 @@ Phase 5: Auxiliary Commands Quick-Reference — Plan 1/1 complete
 - Phase 3: plan 2/2 complete
 - Phase 4: plan 1/3 complete
 - Phase 5: plan 1/1 complete
-- Phase 6: not started
+- Phase 6: plan 1/1 complete
 - Phase 7: not started
 
 ## Last Session
-- **Stopped at:** Completed 05-01-PLAN.md
-- **Timestamp:** 2026-03-05T17:47:02Z
+- **Stopped at:** Completed 06-01-PLAN.md
+- **Timestamp:** 2026-03-05T18:28:08Z
 
 ## Decisions
 - Command placed in .claude/commands/gsd/ (not commands/gsd/) for Claude Code project-level slash command discovery
@@ -57,6 +57,9 @@ Phase 5: Auxiliary Commands Quick-Reference — Plan 1/1 complete
 - [Phase 04]: Three-gate design thinking entry: auto mode skip, DESIGN.md exists skip, user opt-in
 - [Phase 05]: Read-only commands with allowed-tools: [Read] only for reference-only purpose
 - [Phase 05]: Generic CSS custom property fallbacks when STACK.md missing
+- [Phase 06]: All backup/restore logic inline in update.md command shim (not in a separate workflow that would be wiped)
+- [Phase 06]: schema_version field in design-version.json for future migration support
+- [Phase 06]: Self-restoring patched update.md copies itself to backup and restores after vanilla GSD overwrites it
 
 ## Blockers
 (none)
