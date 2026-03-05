@@ -81,6 +81,12 @@ Plans:
 **Goal:** Ensure the fork survives GSD updates and can be installed cross-platform.
 **Dependencies:** Phase 4 (must know which files to preserve)
 **Delivers:** R6.1, R6.2, R6.3, R6.4, R6.5, R6.6
+**Plans:** 3 plans
+
+Plans:
+- [ ] 06-01-PLAN.md — design-version.json schema and patched update.md with design-layer backup/restore
+- [ ] 06-02-PLAN.md — install.sh POSIX sh overlay installer with shellcheck compliance
+- [ ] 06-03-PLAN.md — install.ps1 PowerShell overlay installer with execution policy handling
 
 - Patch `update.md` to preserve `commands/gsd/design-*` and `workflows/design/`
 - Create `design-version.json` with version + file checksums
