@@ -317,7 +317,33 @@ Use AskUserQuestion:
 
 Handle each choice:
 
-- **Yes:** Write the DESIGN.md to `.planning/DESIGN.md` using the Write tool. Done.
+- **Yes:** Write the DESIGN.md to `.planning/DESIGN.md` using the Write tool. Then:
+
+  1. **Commit:** Commit `.planning/DESIGN.md` with message: `docs: create DESIGN.md`
+
+  2. **Display completion banner and next steps:**
+
+  > **Note:** If this command was invoked embedded within `/gsd:new-project`, do NOT display next steps -- the parent orchestrator handles routing. Only show this completion block when running standalone (`/gsd:design-thinking`).
+
+  ---
+
+  ## DESIGN COMPLETE
+
+  `.planning/DESIGN.md` created and committed.
+
+  ---
+
+  ## Next Up
+
+  Your design brief is ready. Here's what to do next:
+
+  - `/gsd:new-project` -- start a new project (DESIGN.md will be used automatically)
+  - `/gsd:discuss-phase N` -- discuss a specific phase (design agents will use DESIGN.md)
+  - `/gsd:progress` -- see current project status
+
+  <sub>`/clear` first -- fresh context window</sub>
+
+  ---
 
 - **Edit:** Ask in plain text: "What would you like to change?" The user describes changes in natural language. Update only the relevant sections. Re-display the full updated DESIGN.md. Loop back to the validation AskUserQuestion. This loop is unlimited -- continue until the user selects "Yes".
 
