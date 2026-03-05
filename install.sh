@@ -175,10 +175,9 @@ if [ -f "$VERSION_JSON" ]; then
 
   # Check each installed file against stored checksums
   # Parse checksums from JSON (simple grep/sed since structure is flat)
-  _ec_oldifs="$IFS"
-  IFS='
-'
-  for _ec_line in $(grep '"sha256:' "$VERSION_JSON" 2>/dev/null); do
+  # Use temp file to track customized status (while-read runs in subshell)
+  _ec_customized_list="$(mktemp)"
+  grep '"sha256:' "$VERSION_JSON" 2>/dev/null | while IFS= read -r _ec_line; do
     _ec_rel_path="$(printf "%s" "$_ec_line" | sed 's/.*"\([^"]*\)"[[:space:]]*:[[:space:]]*"sha256:.*/\1/')"
     _ec_stored_hash="$(printf "%s" "$_ec_line" | sed 's/.*"sha256:\([a-f0-9]*\)".*/\1/')"
     _ec_full_path="$INSTALL_DIR/$_ec_rel_path"
@@ -186,15 +185,19 @@ if [ -f "$VERSION_JSON" ]; then
     if [ -f "$_ec_full_path" ] && [ -n "$_ec_stored_hash" ]; then
       _ec_current_hash="$(compute_checksum "$_ec_full_path")"
       if [ "$_ec_current_hash" != "$_ec_stored_hash" ]; then
-        if [ "$_ec_has_customized" -eq 0 ]; then
-          printf "Customized design files detected:\n"
-        fi
-        printf "  - %s\n" "$_ec_rel_path"
-        _ec_has_customized=1
+        printf "%s\n" "$_ec_rel_path" >> "$_ec_customized_list"
       fi
     fi
   done
-  IFS="$_ec_oldifs"
+
+  if [ -s "$_ec_customized_list" ]; then
+    _ec_has_customized=1
+    printf "Customized design files detected:\n"
+    while IFS= read -r _ec_custom_path; do
+      printf "  - %s\n" "$_ec_custom_path"
+    done < "$_ec_customized_list"
+  fi
+  rm -f "$_ec_customized_list"
 
   if [ "$_ec_has_customized" -eq 1 ]; then
     printf "\nBack up customized files? [Y/n] "
@@ -209,10 +212,7 @@ if [ -f "$VERSION_JSON" ]; then
         mkdir -p "$_ec_backup_dir"
         printf "Backing up to: %s\n" "$_ec_backup_dir"
 
-        _ec_oldifs2="$IFS"
-        IFS='
-'
-        for _ec_line in $(grep '"sha256:' "$VERSION_JSON" 2>/dev/null); do
+        grep '"sha256:' "$VERSION_JSON" 2>/dev/null | while IFS= read -r _ec_line; do
           _ec_rel_path="$(printf "%s" "$_ec_line" | sed 's/.*"\([^"]*\)"[[:space:]]*:[[:space:]]*"sha256:.*/\1/')"
           _ec_full_path="$INSTALL_DIR/$_ec_rel_path"
           if [ -f "$_ec_full_path" ]; then
@@ -221,7 +221,6 @@ if [ -f "$VERSION_JSON" ]; then
             cp -p "$_ec_full_path" "$_ec_backup_file"
           fi
         done
-        IFS="$_ec_oldifs2"
         printf "Backup complete.\n"
         ;;
     esac
