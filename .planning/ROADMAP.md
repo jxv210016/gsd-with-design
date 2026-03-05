@@ -52,6 +52,12 @@ Plans:
 **Goal:** Patch existing GSD commands with marker-based injection to wire in design thinking and design context.
 **Dependencies:** Phase 3 (orchestration must work), Phase 1 (design thinking command must exist)
 **Delivers:** R1.3, R4.1, R4.2, R4.3, R4.4, R4.5
+**Plans:** 3 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — Patch new-project workflow with design thinking injection (Step 4.5) and update command shim
+- [ ] 04-02-PLAN.md — Patch discuss-phase workflow with UI detection gate, agent orchestration, and UI.md commit
+- [ ] 04-03-PLAN.md — Patch plan-phase workflow with design context loading and cross-file guard clause verification
 
 - Patch `new-project.md` — inject design thinking phase after questioning, before research
 - Patch `discuss-phase.md` — inject UI detection gate and design agent spawning
